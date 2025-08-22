@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dharmik Granth Bazaar — Pooja, Paath & Updesh</title>
+  <meta name="description" content="Shri Ram, Krishna, Shiv, Hanuman aur Devi se judi pramukh dharmik kitaben — asli gathans, puja path aur stutiyan. Buy Bhagavad Gita, Ramayana, Shiv Purana & more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">DG</div>
+        <div>
+          <h1>Dharmik Granth Bazaar</h1>
+          <p class="lead">Pramukh dharmik granth — asli, sundar aur puja ke layak editions</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input id="search" class="search" placeholder="Search books, devta ya path (e.g., Geeta, Ramayan)" />
+        <button id="clearBtn" class="btn ghost">Reset</button>
+        <button id="checkoutBtn" class="btn">Checkout</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 style="margin:0">Featured Granths</h2>
+          <p class="muted" style="margin:0">Authentic editions — softcover & hardcover available</p>
+        </div>
+
+        <div class="products" id="products"></div>
+      </section>
+
+      <aside class="cart">
+        <h3>Cart <span class="muted">(<span id="cartCount">0</span>)</span></h3>
+        <div class="cart-list" id="cartList">
+          <!-- items -->
+        </div>
+        <div class="total">
+          <div>Total</div>
+          <div id="totalPrice">₹0</div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button id="checkoutSideBtn" class="btn">Proceed to Pay</button>
+          <button id="clearCart" class="btn ghost">Clear</button>
+        </div>
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Free shipping on orders above ₹999</div>
+      </aside>
+    </main>
+
+    <footer>
+      © Dharmik Granth Bazaar • Genuine Editions • Need bulk order? Contact: +91 98765 43210
+    </footer>
+  </div>
+
+  <template id="productTpl">
+    <div class="card">
+      <div class="cover" data-bg></div>
+      <div>
+        <h3 class="title" data-title></h3>
+        <div class="meta" data-meta></div>
+        <p class="muted" data-desc style="margin-top:8px;font-size:13px"></p>
+      </div>
+      <div class="price-row">
+        <div style="display:flex;flex-direction:column">
+          <div style="font-weight:800" data-price></div>
+          <div class="muted" style="font-size:12px">edin: 1-3 days</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn ghost" data-view>View</button>
+          <button class="btn" data-buy>Add</button>
+        </div>
+      </div>
+    </div>
+  </template>
+  <!-- Simple modal for checkout -->
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);">
+    <div style="width:520px;max-width:94%;background:linear-gradient(180deg,#071126,#07122a);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)">
+      <h3 id="modalTitle" style="margin-top:0">Order Summary</h3>
+      <div id="modalBody" style="max-height:360px;overflow:auto;padding-right:8px"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div class="muted">Payment</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input id="nameInput" placeholder="Name" style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+          <button id="payNow" class="btn">Pay ₹0</button>
+        </div>
+      </div>
+      <div style="margin-top:8px;text-align:right"><button onclick="closeModal()" class="btn ghost">Close</button></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
